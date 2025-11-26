@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
+import 'package:flutter/material.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({Key? key}) : super(key: key);
+
   @override
   State<LocationScreen> createState() => _LocationScreenState();
 }
@@ -17,7 +18,10 @@ class _LocationScreenState extends State<LocationScreen> {
             image: const AssetImage('images/location_background.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.8), BlendMode.dstATop),
+              // formerly Colors.white.withOpacity(0.8)
+              Colors.white.withValues(alpha: 0.8),
+              BlendMode.dstATop,
+            ),
           ),
         ),
         constraints: const BoxConstraints.expand(),
@@ -29,14 +33,14 @@ class _LocationScreenState extends State<LocationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     onPressed: () {},
                     child: const Icon(
                       Icons.near_me,
                       size: 50.0,
                     ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () {},
                     child: const Icon(
                       Icons.location_city,
